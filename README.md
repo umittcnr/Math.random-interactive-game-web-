@@ -50,6 +50,7 @@ Tarayıcınızda açılan simülasyonun keyfini çıkarın!
 ⚠️ Yasal Uyarı (Disclaimer)
 Bu proje tamamen EĞİTİM ve MİZAH amaçlıdır. Sitede geçen paralar, bahisler ve kazançlar tamamen sanaldır. Gerçek para ile oynanan kumarı teşvik etmez, sadece yazılım algoritmalarını simüle eder. Bağımlılık yapmaz, kodlama sevgisi yapar. 😉
 
-Developed by [UMİTTCNR]
+ 🚀 Canlı Deneyim
+[Canlı Demo: Algoritma Bet](https://algolotokazandirir.netlify.app/)
 
-🔗 Canlı Demo: [https://algolotokazandirir.netlify.app/](https://algolotokazandirir.netlify.app/)
+Developed by [UMİTTCNR]
