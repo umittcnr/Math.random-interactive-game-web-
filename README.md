@@ -1,6 +1,11 @@
 # Math.random-interactive-game-web-
 # 🎲 Algoritma Bet | Şansını Kodla!
 
+
+ 🚀 Canlı Deneyim
+[Canlı Demo: Algoritma Bet](https://algolotokazandirir.netlify.app/)
+
+
 > **"Kasa her zaman kazanır... ama bu sefer kasa sadece bir algoritma!"**
 
 Bu proje, dışarıdan bakıldığında bir şans oyunları sitesi gibi görünse de, aslında **JavaScript'in `Math.random()` kütüphanesinin çalışma mantığını** ve temel **olasılık algoritmalarını** eğlenceli bir yolla anlatan interaktif bir web simülasyonudur.
@@ -25,6 +30,7 @@ Sitede üç farklı algoritma simülasyonu bulunur:
 * **HTML5:** İskelet yapı.
 * **CSS3 (Bootstrap 5):** Stil, düzen ve "Dark Theme" renk paleti.
 * **JavaScript (Vanilla):** Tüm oyun mantığı, DOM manipülasyonu ve `Math` kütüphanesi fonksiyonları.
+  
 
 ## 💻 Nasıl Çalışır? (Kodun Arkasındaki Mantık)
 
@@ -49,8 +55,5 @@ Tarayıcınızda açılan simülasyonun keyfini çıkarın!
 
 ⚠️ Yasal Uyarı (Disclaimer)
 Bu proje tamamen EĞİTİM ve MİZAH amaçlıdır. Sitede geçen paralar, bahisler ve kazançlar tamamen sanaldır. Gerçek para ile oynanan kumarı teşvik etmez, sadece yazılım algoritmalarını simüle eder. Bağımlılık yapmaz, kodlama sevgisi yapar. 😉
-
- 🚀 Canlı Deneyim
-[Canlı Demo: Algoritma Bet](https://algolotokazandirir.netlify.app/)
 
 Developed by [UMİTTCNR]
