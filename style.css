@@ -1,0 +1,243 @@
+/* GENEL VE TEMA AYARLARI */
+body {
+    background-color: #0d0d0d; /* Koyu arka plan */
+    color: #e0e0e0; /* Açık Gri */
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* GİZLEME KURALI */
+.hidden {
+    display: none !important;
+}
+
+/* CASINO BUTON STİLİ */
+.casino-btn {
+    background-color: #a00; /* Parlak Kırmızı */
+    color: white;
+    border: 3px solid gold;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.7); /* Altın parlaklığı */
+    transition: all 0.2s;
+    margin: 10px;
+    text-transform: uppercase;
+}
+
+.casino-btn:hover {
+    background-color: #c00;
+    transform: scale(1.02);
+}
+
+.casino-btn:disabled {
+    background-color: #333;
+    border-color: #666;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+/* KEDİ VE GİRİŞ EKRANLARI */
+.kedi-container {
+    padding: 40px;
+    border: 5px solid #a00;
+    border-radius: 15px;
+    background-color: #1a1a1a;
+    max-width: 400px;
+    margin: 20px;
+    box-shadow: 0 0 20px rgba(160, 0, 0, 0.5);
+}
+
+.kedi-img {
+    width: 150px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px #ff00ff); /* Mor parlaklık */
+}
+
+.kedi-diyalogu {
+    font-style: italic;
+    color: #ffd700; /* Altın rengi */
+}
+
+#age-input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    background-color: #333;
+    color: white;
+}
+
+/* OYUN ALANI */
+#game-container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #111;
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin-bottom: 60px; /* Footer için boşluk */
+}
+
+/* TABLO VE IZGARA (LOTO) */
+#user-selection-grid, #random-numbers-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.number-btn, .result-ball {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    background-color: #222;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number-btn.selected {
+    background-color: gold;
+    color: black;
+    border-color: white;
+}
+
+.result-ball {
+    background-color: #0044ff; /* Mavi top */
+    border-color: cyan;
+}
+
+.result-ball.match {
+    background-color: #00ff00; /* Yeşil (Eşleşme) */
+    color: black;
+    border-color: white;
+    box-shadow: 0 0 10px lime;
+}
+
+/* YAZI TURA & ZAR */
+.result-display {
+    margin-top: 20px;
+    font-size: 1.2em;
+    min-height: 50px;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+/* KOD BLOKLARI (Nasıl Çalışır Kısmı İçin) */
+.code-box {
+    background-color: #2d2d2d;
+    border-left: 4px solid #ffd700;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: left;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #aaffaa; /* Kod yeşili */
+    overflow-x: auto;
+}
+
+.legal-disclaimer {
+    font-size: 0.7em;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* ======================================================= */
+/* MODAL STİLLERİ (GÜNCELLENDİ - SCROLL ÇÖZÜMÜ) */
+/* ======================================================= */
+
+/* Sabit Buton */
+.fixed-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; 
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+/* Modal Arka Planı */
+.modal {
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Çok koyu arka plan */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Ortada tutar */
+    /* overflow hidden kalsın, scroll'u içeriğe vereceğiz */
+}
+
+/* Modal İçeriği Kutusu */
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 0; /* Padding'i sıfırladık, içerde header/body yönetecek */
+    border: 3px solid gold;
+    width: 90%;
+    max-width: 800px;
+    
+    /* İŞTE SİHİRLİ AYARLAR BURADA: */
+    max-height: 90vh; /* Ekranın %90'ı kadar yer kaplasın, taşmasın */
+    overflow-y: auto; /* İÇERİK SIĞMAZSA KUTUNUN İÇİNDE KAYDIRMA ÇUBUĞU ÇIKSIN */
+    
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Başlık Kısmı (Geri Butonu İçin) */
+.modal-header {
+    background-color: #333;
+    padding: 15px;
+    position: sticky; /* Başlık kaybolmasın */
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #555;
+    display: flex;
+    align-items: center;
+}
+
+/* İçerik Kısmı */
+.modal-body {
+    padding: 30px;
+}
+
+/* Fiziksel Geri Butonu */
+.close-btn-physical {
+    background-color: #a00;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.close-btn-physical:hover {
+    background-color: #f00;
+}
