@@ -52,4 +52,4 @@ Bu proje tamamen EĞİTİM ve MİZAH amaçlıdır. Sitede geçen paralar, bahisl
 
 Developed by [UMİTTCNR]
 
-`🔗 Canlı Demo: [https://algolotokazandirir.netlify.app/](https://algolotokazandirir.netlify.app/)`
+🔗 Canlı Demo: [https://algolotokazandirir.netlify.app/](https://algolotokazandirir.netlify.app/)
