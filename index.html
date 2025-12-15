@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritma Bet | Şansını Kodla!</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <div id="age-gate" class="active">
+        <div class="kedi-container">
+            <img src="cat_suspicious.png" alt="Şüpheli Kedi" class="kedi-img">
+            <h1>ALGORİTMA BET GİRİŞ KONTROL NOKTASI</h1>
+            <p class="kedi-diyalogu">
+                Dur bakiyim sen! Bu mekan sadece **Algoritmaların Yasal Zorunluluğu**na tabidir. Kaç yaşındasın bakiyim?
+            </p>
+            <input type="number" id="age-input" placeholder="Yaşını gir..." min="1">
+            <button id="verify-button" class="casino-btn">Giriş Yap!</button>
+        </div>
+    </div>
+    
+    <div id="balance-gate" class="hidden">
+        <div class="kedi-container">
+            <img src="token_draw.png" alt="Sahte Token Çekilişi" class="kedi-img">
+            <h1>💰 SAHTE TOKEN ÇEKİLİŞİ BAŞLADI</h1>
+            <p class="kedi-diyalogu">Hey adamım, sana **ne kadar sanal para** lazım?</p>
+            <div id="balance-choices">
+                <button class="casino-btn balance-select" data-amount="10">10 TL</button>
+                <button class="casino-btn balance-select" data-amount="50">50 TL</button>
+                <button class="casino-btn balance-select" data-amount="100">100 TL</button>
+                <button class="casino-btn balance-select" data-amount="200">200 TL</button>
+            </div>
+            <p class="legal-disclaimer" style="margin-top: 20px;">*Bu bakiyeler tamamen sanaldır ve sadece espri amaçlıdır. Her oyun maliyeti 10 TL'dir.</p>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <header>
+            <h1>🎰 Algoritma Bet: Rastgele Kod Çekilişi 💰</h1>
+            <p>Kaderin Değiştiği Yasal Mekan!</p>
+        </header>
+
+        <div id="balance-display" style="font-size: 1.5em; margin-bottom: 20px; color: lime;">
+            Mevcut Bakiye: <span id="current-balance">0 TL</span>
+        </div>
+        
+        <nav id="game-nav">
+            <button class="casino-btn nav-btn active" data-game="loto">6'lı Eşleştirme</button>
+            <button class="casino-btn nav-btn" data-game="flip">Algoritma Çevirmece</button>
+            <button class="casino-btn nav-btn" data-game="dice">Zar Atımı Analizi</button>
+        </nav>
+        <hr style="border-color:gold; margin: 20px 0;">
+
+        <div id="game-area">
+            <div id="loto-game" class="game-content active">
+                <div id="selection-area">
+                    <p>1-49 Arasından 6 Şanslı Sayını Seç.</p>
+                    <h2>Seçim Kodu: <span id="selected-count">0/6</span></h2>
+                    <div id="user-selection-grid"></div>
+                    <button id="play-button" class="casino-btn" disabled>ÇEKİLİŞİ BAŞLAT (10 TL)</button>
+                </div>
+                <div id="result-area" class="hidden">
+                    <h2>Algoritma Sonuçları</h2>
+                    <div id="random-numbers-display" class="number-display"></div>
+                    <p id="result-message" class="result-text"></p>
+                    <p id="match-count-display">Eşleşen Sayı Adedi: 0</p>
+                    <button id="restart-button" class="casino-btn hidden">TEKRAR KODLA!</button>
+                    <p class="match-info">6 Tutan: +200 TL | 5 Tutan: +50 TL | 4 Tutan: +25 TL | 3 Tutan: 10 TL | 1/2 Tutan: +5 TL</p>
+                </div>
+            </div>
+            
+            <div id="flip-game" class="game-content hidden">
+                <h2>Algoritma Çevirmece (Yazı/Tura)</h2>
+                <p>Hangi kodun geleceğine bahse gir! (Oyun Maliyeti: 10 TL)</p>
+                <button class="casino-btn flip-choice" data-choice="Yazı">YAZI</button>
+                <button class="casino-btn flip-choice" data-choice="Tura">TURA</button>
+                <div id="flip-result" class="result-display"></div>
+            </div>
+
+            <div id="dice-game" class="game-content hidden">
+                <h2>Zar Atımı Analizi</h2>
+                <p>Toplamın küçük (2-6), ortalama (7) veya büyük (8-12) olacağına bahis yap. (Oyun Maliyeti: 10 TL)</p>
+                <button class="casino-btn dice-choice" data-choice="Küçük">KÜÇÜK (2-6)</button>
+                <button class="casino-btn dice-choice" data-choice="Ortalama">ORTALAMA (7)</button>
+                <button class="casino-btn dice-choice" data-choice="Büyük">BÜYÜK (8-12)</button>
+                <div id="dice-result" class="result-display"></div>
+            </div>
+        </div>
+
+        <footer class="legal-disclaimer">
+            <p>⚠️ UYARI: Bu oyun tamamen Math.random() kütüphanesi ile simüle edilmiştir. Hiçbir yasal veya parasal değeri yoktur. Tamamen espri amaçlıdır.</p>
+        </footer>
+    </div>
+
+    <button id="how-it-works-btn" class="casino-btn fixed-btn">
+        ❓ Nasıl Çalışır?
+    </button>
+    
+    <div id="info-modal" class="modal hidden">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <button class="close-btn-physical">⬅ GERİ DÖN</button>
+                <h3 style="margin-left: 15px; margin-bottom: 0;">Algoritma Bet Mantığı</h3>
+            </div>
+
+            <div class="modal-body">
+                <h2>🧠 Yazılımcılar İçin: Nasıl Çalışıyor?</h2>
+                <p>Bu web sitesi, Java'da öğrendiğiniz temel programlama mantığının web (JavaScript) üzerindeki uygulamasıdır. Tüm rastgelelik <code>Math.random()</code> metodu ile sağlanır.</p>
+                
+                <hr>
+
+                <h3>1. Temel Yapı ve Koşullu İfadeler</h3>
+                
+                <h4>Yaş Kontrolü (if-else)</h4>
+                <p>Siteye girişteki yaş kontrolü, programlamanın en temel yapısı olan **if-else** bloğudur. Java'daki mantıkla birebir aynıdır.</p>
+                <div class="code-box">
+                    <code>
+                        // Java Mantığı:
+                        <br>int girilenYas = 19;
+                        <br>
+                        <br>if (girilenYas >= 18) {
+                        <br> &nbsp;&nbsp;ekraniAc(); // Giriş başarılı
+                        <br>} else {
+                        <br> &nbsp;&nbsp;uyariVer(); // Giriş başarısız
+                        <br>}
+                    </code>
+                </div>
+                
+                <hr>
+
+                <h3>2. 6'lı Eşleştirme (Loto) Algoritması</h3>
+                <p><strong>Amaç:</strong> 1-49 arasından 6 benzersiz sayı çekmek.</p>
+                
+                <h4>Benzersiz Rastgele Sayı (Döngüler)</h4>
+                <p>Aynı sayının iki kere gelmemesi için, sayı üretilirken "bu sayı zaten listede var mı?" kontrolü yapılır. Bu işlem Java'daki <code>ArrayList.contains()</code> mantığıdır.</p>
+                <div class="code-box">
+                    <code>
+                        // Java Mantığı (Basitleştirilmiş):
+                        <br>ArrayList&lt;Integer&gt; sayilar = new ArrayList&lt;&gt;();
+                        <br>
+                        <br>while (sayilar.size() < 6) {
+                        <br> &nbsp;&nbsp;int rastgele = (int)(Math.random() * 49) + 1;
+                        <br> &nbsp;&nbsp;
+                        <br> &nbsp;&nbsp;// Eğer listede yoksa ekle (Benzersizlik)
+                        <br> &nbsp;&nbsp;if (!sayilar.contains(rastgele)) {
+                        <br> &nbsp;&nbsp;&nbsp;&nbsp;sayilar.add(rastgele);
+                        <br> &nbsp;&nbsp;}
+                        <br>}
+                    </code>
+                </div>
+
+                <hr>
+
+                <h3>3. Algoritma Çevirmece (Yazı/Tura)</h3>
+                <p><strong>Amaç:</strong> %50 - %50 Olasılık.</p>
+                <p><code>Math.random()</code> 0.0 ile 1.0 arasında bir sayı verir. Tam ortası 0.5'tir.</p>
+                <div class="code-box">
+                    <code>
+                        // Java Mantığı:
+                        <br>if (Math.random() < 0.5) {
+                        <br> &nbsp;&nbsp;return "YAZI";
+                        <br>} else {
+                        <br> &nbsp;&nbsp;return "TURA";
+                        <br>}
+                    </code>
+                </div>
+
+                <hr>
+                
+                <h3>4. Zar Atımı Analizi</h3>
+                <p><strong>Mantık:</strong> İki zarın toplamında 7 gelme ihtimali, 2 veya 12 gelme ihtimalinden yüksektir. Çünkü 7 yapan kombinasyonlar fazladır (1+6, 2+5, 3+4...).</p>
+                
+                <div class="code-box">
+                    <code>
+                        // Java'da Zar Metodu:
+                        <br>int zar1 = (int)(Math.random() * 6) + 1;
+                        <br>int zar2 = (int)(Math.random() * 6) + 1;
+                        <br>int toplam = zar1 + zar2;
+                    </code>
+                </div>
+                <p>Site bu matematiksel olasılığı simüle eder.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
